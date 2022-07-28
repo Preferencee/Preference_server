@@ -1,0 +1,7 @@
+{
+    "host": "umcspring.cmyetgzwfspl.ap-northeast-2.rds.amazonaws.com" ,
+    "user": "ksj01128",
+    "port": "3306",
+    "password": "adominic",
+    "database": "seojinDB"
+}
