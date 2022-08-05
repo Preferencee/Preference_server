@@ -36,33 +36,3 @@ exports.emailCheck = async function (email) {
     }
 
     };
-  
-  // 필터링 검색
-  exports.filterProduct = async function (brand1, brand2, brand3, priceLow, priceHigh, notes1, notes2, notes3, gender) {
-    try {
-        const connection = await pool.getConnection(async (conn) => conn);
-        const filterResult = await userDao.selectFilterProduct(connection, brand1, brand2, brand3, priceLow, priceHigh, notes1, notes2, notes3, gender);
-      
-        connection.release();
-  
-        return filterResult;
-    } catch (err) {
-        console.log(err);
-    }
-  };
-
-// 유사 검색
-exports.similarProduct = async function (searchword) {
-    try {
-        const connection = await pool.getConnection(async (conn) => conn);
-        const similarResult = await userDao.selectSimilarProduct(connection, searchword);
-        
-        connection.release();
-  
-        return similarResult;
-  
-  
-    } catch (err) {
-        console.log(err);
-    }
-  };

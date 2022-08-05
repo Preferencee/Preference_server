@@ -14,3 +14,4 @@ app.listen(port, () => {
 })
 
 app.use('/users', require('./routes/userRouter'));
+app.use('/search', require('./routes/searchRouter'));
