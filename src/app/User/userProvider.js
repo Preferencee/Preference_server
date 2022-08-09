@@ -18,7 +18,7 @@ exports.emailCheck = async function (email) {
     } catch (err) {
       return errResponse(baseResponse.DB_ERROR);
     }
-    };
+};
   
   
   // 유저 닉네임 체크
@@ -34,5 +34,18 @@ exports.emailCheck = async function (email) {
     } catch (err) {
        console.log(err);
     }
+};
 
-    };
+  // 비밀번호 찾기
+  exports.findPassword = async function (email) {
+    try{
+      const connection = await pool.getConnection(async (conn) => conn);
+      const findPasswordResult = await userDao.selectUserPassword(connection, email);
+      connection.release();
+    
+      return(findPasswordResult)
+
+    } catch (err) {
+       console.log(err);
+    }
+};

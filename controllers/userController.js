@@ -36,3 +36,20 @@ const {errResponse} = require("../config/response");
 
     return res.send(nicknameCheckResponse);
  };
+
+ /**
+ * API No. 3
+ * API Name : 비밀번호 찾기 API
+ * [GET] /users/findPassword
+ */
+  exports.getFindPassword = async (req, res) => {
+
+   /**
+    * Query String: email
+    */
+    const email = req.query.email;
+
+   const findPasswordResponse = await userProvider.findPassword(email);
+
+   return res.send(findPasswordResponse);
+};

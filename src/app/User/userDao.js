@@ -23,7 +23,19 @@ async function selectUserNickname(connection, nickname) {
   return nicknameRows[0];
 }
 
+// 비밀번호 찾기
+async function selectUserPassword(connection, email) {
+  const selectUserPasswordQuery = `
+    SELECT password
+    FROM User
+    WHERE email = ?;
+  `;
+const [selectUserPasswordRow] = await connection.query(selectUserPasswordQuery, email);
+return selectUserPasswordRow[0];
+}
+
 module.exports = {
-selectUserEmail,
-selectUserNickname
+  selectUserEmail,
+  selectUserNickname,
+  selectUserPassword
 };

@@ -11,4 +11,9 @@ router.get('/emailCheck', userController.getEmailCheck);
 // GET /users/nicknameCheck
 router.get('/nicknameCheck', userController.getNicknameCheck);
 
+// 3. 비밀번호 찾기 
+// GET /users/findPassword
+router.get('/findPassword', userController.getFindPassword);
+
+
 module.exports = router;
