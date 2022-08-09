@@ -3,7 +3,7 @@ const baseResponse = require("../config/baseResponseStatus");
 const {errResponse} = require("../config/response");
 
 /**
- * API No. 3
+ * API No. 1
  * API Name : 필터링 검색 API
  * [GET] /users/products/filter
  */
@@ -61,7 +61,7 @@ exports.getFilterSearch = async (req, res) => {
 }; 
 
 /**
- * API No. 4
+ * API No. 2
  * API Name : 유사 검색 API
  * [GET] /users/products/similar
  * ex) /users/products/similar?name=블랑 -> '블랑쉬' 상품 정보 검색
@@ -77,7 +77,7 @@ exports.getFilterSearch = async (req, res) => {
  };
 
  /**
- * API No. 5
+ * API No. 3
  * API Name : 해시태그 검색 API-인스타ver
  * [GET] /users/products/hashtag
  * 인스타그램 느낌,,,   

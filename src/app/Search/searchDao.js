@@ -36,9 +36,9 @@ async function selectFilterProduct(connection, brand1, brand2, brand3, priceLow,
     // 해시태그 검색-인스타ver
     async function selectHashtagProduct(connection, hashtag) {
       const selectHashtagInfoQuery = `
-                        SELECT *
-                        FROM Product
-                        WHERE hashtag LIKE concat('%',?,'%');
+                      SELECT *
+                      FROM Product
+                      WHERE hashtag LIKE concat('%',?,'%');
                       `;
       const selectHashtagInfoRow = await connection.query(selectHashtagInfoQuery, hashtag);
       return selectHashtagInfoRow[0];
