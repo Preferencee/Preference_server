@@ -15,4 +15,5 @@ router.get('/nicknameCheck', userController.getNicknameCheck);
 // GET /users/findPassword
 router.get('/findPassword', userController.getFindPassword);
 
+
 module.exports = router;
