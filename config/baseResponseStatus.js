@@ -12,6 +12,7 @@ module.exports = {
     SIGNUP_BIRTH_EMPTY : {"isSuccess": false, "code": 2007, "message":"생일을 입력 해주세요."},
     SIGNUP_BIRTH_LENGTH : {"isSuccess": false, "code": 2008, "message":"생일 형식을 정확히 입력해주세요."},
     SIGNUP_GENDER_EMPTY : {"isSuccess": false, "code": 2009, "message":"성별을 입력 해주세요."},
+    EMAIL_WRONG : { "isSuccess": false, "code": 2010, "message":"존재하지 않는 이메일입니다." },
 
 
     // Response error
