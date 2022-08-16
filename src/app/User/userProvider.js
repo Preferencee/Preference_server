@@ -49,3 +49,33 @@ exports.emailCheck = async function (email) {
        console.log(err);
     }
 };
+
+// 회원가입
+exports.userJoin = async function (email, password, nickname, birth, gender, notes) {
+  try{
+    const connection = await pool.getConnection(async (conn) => conn);
+    const userJoinResult = await userDao.userSave(connection, email, password, nickname, birth, gender, notes);
+    connection.release();
+  
+    return(userJoinResult)
+
+  } catch (err) {
+     console.log(err);
+  }
+};
+
+// 로그인 
+exports.userLogin = async function (email, password) {
+  try{
+    const connection = await pool.getConnection(async (conn) => conn);
+    const userLoginEmailResult = await userDao.userLoginEmail(connection, email);
+    const userLoginResult = await userDao.userLogin(connection, password, userLoginEmailResult);
+    
+    connection.release();
+
+    return(userLoginResult)
+  
+  } catch (err) {
+     console.log(err);
+  }
+};

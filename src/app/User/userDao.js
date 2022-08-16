@@ -34,8 +34,43 @@ const [selectUserPasswordRow] = await connection.query(selectUserPasswordQuery, 
 return selectUserPasswordRow[0];
 }
 
+// 회원가입
+async function userSave(connection, email, password, nickname, birth, gender, notes) {
+    const userSaveQuery = `
+    INSERT INTO User(email, password, nickname, birth, gender, notes) VALUES(?, ?, ?, ?, ?, ?);
+    `;
+    const [userSaveRow] = await connection.query(userSaveQuery, [email, password, nickname, birth, gender, notes]);
+    return userSaveRow[0];
+}
+
+// 로그인-이메일 체크
+async function userLoginEmail(connection, email) {
+  const loginEmailQuery = `
+    SELECT userId
+    FROM User
+    WHERE email = ?;
+  `;
+const [loginEmailRow] = await connection.query(loginEmailQuery, email);
+return loginEmailRow[0];
+}
+
+// 로그인
+async function userLogin(connection, password, userLoginEmailResult) {
+  const userLoginQuery = `
+    SELECT *
+    FROM User
+    WHERE password = ?
+    AND userId = ?;  
+  `;
+  const [userLoginRow] = await connection.query(userLoginQuery, [password, userLoginEmailResult]);
+  return userLoginRow[0];
+}
+
 module.exports = {
   selectUserEmail,
   selectUserNickname,
-  selectUserPassword
+  selectUserPassword,
+  userSave,
+  userLoginEmail,
+  userLogin
 };

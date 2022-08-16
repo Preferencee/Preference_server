@@ -15,5 +15,13 @@ router.get('/nicknameCheck', userController.getNicknameCheck);
 // GET /users/findPassword
 router.get('/findPassword', userController.getFindPassword);
 
+// 4. 회원가입
+// POST /users/
+router.post('/', userController.postJoin);
+
+// 5. 로그인
+// POST /users/login
+router.post('/login', userController.postLogin);
+
 
 module.exports = router;

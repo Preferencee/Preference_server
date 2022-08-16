@@ -14,6 +14,7 @@ app.listen(port, () => {
 })
 
 app.use('/users', require('./routes/userRouter'));
+app.use('/post', require('./routes/postRouter'));
 app.use('/search', require('./routes/searchRouter'));
 app.use('/sort', require('./routes/sortRouter'));
 app.use('/test', require('./routes/testRouter'));
