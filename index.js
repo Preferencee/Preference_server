@@ -12,10 +12,7 @@ const port = 3306;
 app.listen(port, () => {
     console.log("Server listening on port", port)
 })
-app.get("/", (req, res) => {
-    res.send("Hello world!");
-  });
-  
+
 app.use('/users', require('./routes/userRouter'));
 app.use('/post', require('./routes/postRouter'));
 app.use('/search', require('./routes/searchRouter'));
