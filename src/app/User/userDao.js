@@ -57,7 +57,7 @@ return loginEmailRow[0];
 // 로그인
 async function userLogin(connection, password, userLoginEmailResult) {
   const userLoginQuery = `
-    SELECT *
+    SELECT userId
     FROM User
     WHERE password = ?
     AND userId = ?;  
