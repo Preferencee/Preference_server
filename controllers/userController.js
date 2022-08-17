@@ -62,14 +62,14 @@ const {errResponse} = require("../config/response");
  exports.postJoin = async (req, res) => {
 
    /**
-    * Query String: email, password, nickname, birth, gender, notes
+    * RequestBody: email, password, nickname, birth, gender, notes
     */
-    const email = req.query.email;
-    const password = req.query.password;
-    const nickname = req.query.nickname;
-    const birth = req.query.birth;
-    const gender = req.query.gender;
-    const notes = req.query.notes;
+    const email = req.body.email;
+    const password = req.body.password;
+    const nickname = req.body.nickname;
+    const birth = req.body.birth;
+    const gender = req.body.gender;
+    const notes = req.body.notes;
     //const notes2 = req.query.notes2;
     //const notes3 = req.query.notes3;
 
@@ -86,10 +86,10 @@ const {errResponse} = require("../config/response");
  exports.postLogin = async (req, res) => {
 
    /**
-    * Query String: email, password
+    * RequestBody: email, password
     */
-    const email = req.query.email;
-    const password = req.query.password;
+    const email = req.body.email;
+    const password = req.body.password;
 
    const userLoginResponse = await userProvider.userLogin(email, password);
 

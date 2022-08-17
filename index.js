@@ -21,3 +21,4 @@ app.use('/post', require('./routes/postRouter'));
 app.use('/search', require('./routes/searchRouter'));
 app.use('/sort', require('./routes/sortRouter'));
 app.use('/test', require('./routes/testRouter'));
+app.use('/like', require('./routes/likeRouter'));

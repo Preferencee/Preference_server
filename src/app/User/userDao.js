@@ -43,26 +43,15 @@ async function userSave(connection, email, password, nickname, birth, gender, no
     return userSaveRow[0];
 }
 
-// 로그인-이메일 체크
-async function userLoginEmail(connection, email) {
-  const loginEmailQuery = `
-    SELECT userId
-    FROM User
-    WHERE email = ?;
-  `;
-const [loginEmailRow] = await connection.query(loginEmailQuery, email);
-return loginEmailRow[0];
-}
-
 // 로그인
-async function userLogin(connection, password, userLoginEmailResult) {
+async function userLogin(connection, email, password) {
   const userLoginQuery = `
-    SELECT userId
+    SELECT *
     FROM User
-    WHERE password = ?
-    AND userId = ?;  
+    WHERE email = ?
+    AND  password= ?;  
   `;
-  const [userLoginRow] = await connection.query(userLoginQuery, [password, userLoginEmailResult]);
+  const [userLoginRow] = await connection.query(userLoginQuery, [email, password]);
   return userLoginRow[0];
 }
 
@@ -71,6 +60,5 @@ module.exports = {
   selectUserNickname,
   selectUserPassword,
   userSave,
-  userLoginEmail,
   userLogin
 };
