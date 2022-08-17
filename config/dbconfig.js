@@ -3,7 +3,7 @@ const mysql = require('mysql2/promise');
 const pool = mysql.createPool({
     "host": "umcspring.cmyetgzwfspl.ap-northeast-2.rds.amazonaws.com" ,
     "user": "ksj01128",
-    "port": "3306",
+    "port": "9000",
     "password": "adominic",
     "database": "seojinDB"
 })

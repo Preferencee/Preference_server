@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 
-const port = 3306;
+const port = 9000;
 app.listen(port, () => {
     console.log("Server listening on port", port)
 })
