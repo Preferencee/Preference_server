@@ -12,6 +12,9 @@ const port = 9000;
 app.listen(port, () => {
     console.log("Server listening on port", port)
 })
+app.get('', (req,res,next) => {
+    res.send("Hello world\n");
+})
 
 app.use('/users', require('./routes/userRouter'));
 app.use('/post', require('./routes/postRouter'));
